@@ -14,3 +14,17 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('user/login', 'Auth\LoginController@login');
+Route::post('user/login', 'Auth\LoginController@postLogin')->name('user/login');
+
+Route::get('user/register', 'Auth\RegisterController@register');
+Route::post('user/register', 'Auth\RegisterController@create')->name('user/register');
+
+Route::get('user/dashboard', function() {
+  return view('dashboard');
+})->middleware('auth');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

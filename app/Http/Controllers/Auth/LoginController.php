@@ -50,7 +50,7 @@ class LoginController extends Controller
     {
       // Récupérer les infos du formulaire puis hasher le mot de passe pour le comparer
       $this->validate($request, [
-        $this->username() => 'required', 'password' => 'required',
+      $this->username() => 'required', 'password' => 'required',
       ]);
     }
     public function username()
